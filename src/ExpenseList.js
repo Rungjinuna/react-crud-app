@@ -42,7 +42,10 @@ function ExpenseList({
                     </div>
                     <div className='flex'>
                       <button
-                        onClick={() => handleEditClick(exp.id)}
+                        onClick={(e) => {
+                          e.stopPropagation(); // 이벤트 버블링을 중지시킴
+                          handleEditClick(exp.id);
+                        }}
                         className='bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 rounded mx-1'
                       >
                         수정

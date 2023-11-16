@@ -12,18 +12,19 @@ function AddExpenseForm({
         value={editExpense}
         onChange={(e) => setEditExpense(e.target.value)}
         placeholder='지출 항목'
-        className='border p-2 rounded w-1/2'
+        className='border p-2 rounded w-1/2 h-1/2'
       />
       <input
         type='number'
         value={editAmount}
         onChange={(e) => setEditAmount(e.target.value)}
         placeholder='비용'
-        className='border p-2 rounded w-1/2'
+        className='border p-2 rounded w-1/2 h-1/2'
       />
       <button
         onClick={handleAdd}
         className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+        style={{ whiteSpace: 'nowrap' }}
       >
         추가
       </button>

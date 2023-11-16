@@ -39,6 +39,7 @@ function ExpenseTracker({ onAddExpense }) {
 
   const handleEditClick = (id) => {
     setIsEditing(id);
+    console.log('Editing ID:', id);
   };
 
   const handleSave = (id) => {
@@ -111,6 +112,8 @@ function ExpenseTracker({ onAddExpense }) {
         handleDelete={handleDelete}
         formatCurrency={formatCurrency}
         onDragEnd={onDragEnd}
+        handleEditChange={handleEditChange}
+        handleSave={handleSave}
       />
 
       <TotalDisplay
