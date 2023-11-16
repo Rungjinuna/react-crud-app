@@ -83,6 +83,18 @@ function ExpenseTracker({ onAddExpense }) {
     }).format(amount);
   };
 
+  const onDragEnd = (result) => {
+    if (!result.destination) {
+      return;
+    }
+
+    const updatedExpenses = Array.from(expenses);
+    const [reorderedItem] = updatedExpenses.splice(result.source.index, 1);
+    updatedExpenses.splice(result.destination.index, 0, reorderedItem);
+
+    setExpenses(updatedExpenses);
+  };
+
   return (
     <div className='container mx-auto p-4'>
       <AddExpenseForm
@@ -98,6 +110,7 @@ function ExpenseTracker({ onAddExpense }) {
         handleEditClick={handleEditClick}
         handleDelete={handleDelete}
         formatCurrency={formatCurrency}
+        onDragEnd={onDragEnd}
       />
 
       <TotalDisplay
